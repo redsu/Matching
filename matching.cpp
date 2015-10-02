@@ -38,6 +38,12 @@ void label_one_side(int x, int y, int bi)
 bool BFS(int r)
 {
     for (int i=0; i<n; ++i) p[i].clear();
+	for (int i=0; i<n; i++) {
+		for (int j=0; j<p[i].size(); j++)
+			cout << p[i][j] << ' ';
+		cout << endl;
+	}
+		
     p[r].push_back(r);                  // 交錯樹樹根
 
     memset(d, -1, sizeof(d));
