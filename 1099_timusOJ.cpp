@@ -4,12 +4,12 @@
 #include<deque>
 
 using namespace std;
-int _map[230][230];
-int match[230];
-int visit[230];
-int queue[20000], *qf, *qb;
+int _map[300][300];
+int match[300];
+int visit[300];
+int queue[300], *qf, *qb;
 int n;
-deque<int> p[230];
+deque<int> p[300];
 
 
 void label_one_side(int x, int y, int bi){
@@ -21,9 +21,9 @@ void label_one_side(int x, int y, int bi){
             for(int k=0; k<p[z].size(); k++)
 				cout << p[z][k] << ' ';
 			cout << endl;
-            cout << "after\n";
+            cout << "after\n";*/
 			p[z].insert(p[z].end(), p[x].rbegin(), p[x].rend()-i);
-			for(int k=0; k<p[z].size(); k++)
+/*			for(int k=0; k<p[z].size(); k++)
 				cout << p[z][k] << ' ';
 			cout << endl;*/
 			visit[z] = 0;
@@ -37,7 +37,7 @@ bool BFS(int r){
 		p[i].clear();
 	p[r].push_back(r);
 
-	memset(visit, -1, sizeof(visit));
+	memset(visit, -1, sizeof(visit)+1);
 	visit[r] = 0;
 
 	//queue[0] = r;
@@ -99,7 +99,7 @@ bool BFS(int r){
 
 int Match(){
 	int c = 0;
-	memset(match, -1, sizeof(match));
+	memset(match, -1, sizeof(match)+1);
 	for(int i=1; i<=n; i++){
 		if(match[i]==-1)
 			if(BFS(i))
